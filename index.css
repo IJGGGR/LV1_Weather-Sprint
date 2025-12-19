@@ -44,6 +44,24 @@ body {
     / 1fr 2fr;
 }
 
+.grid-header {
+  grid:
+    ". a ." auto
+    / 1fr 2fr 1fr;
+}
+
+.grid-search {
+  gap: 16px;
+  grid:
+    "a b" auto
+    / auto 1fr;
+  background: var(--gray-one);
+  border-radius: 16px;
+  padding: 16px;
+  font: 400 normal 32px / 1em "Roboto Mono", monospace;
+  text-align: left;
+}
+
 .grid-current {
   grid:
     "a" auto
@@ -57,8 +75,8 @@ body {
 .grid-week {
   gap: 16px;
   grid:
-    "a b c d e f" auto
-    / 1fr 1fr 1fr 1fr 1fr 1fr;
+    "a b c d e" auto
+    / 1fr 1fr 1fr 1fr 1fr;
 }
 
 /* AREA ========================================================================================= */
@@ -92,14 +110,6 @@ body {
   text-align: center;
 }
 
-.cell-search {
-  background: var(--gray-one);
-  border-radius: 16px;
-  padding: 32px;
-  font: 400 normal 32px / 1em "Roboto Mono", monospace;
-  text-align: left;
-}
-
 .cell-favorites {
   background: var(--gray-two);
   border-radius: 16px;
@@ -117,5 +127,13 @@ body {
 
 .cell-current-lower {
   padding: 16px;
+  text-align: center;
+}
+
+.cell-week-day {
+  background: var(--gray-two);
+  border-radius: 16px;
+  padding: 16px;
+  font: 400 normal 24px / 1em "Roboto Mono", monospace;
   text-align: center;
 }
