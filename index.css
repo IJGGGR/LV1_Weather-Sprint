@@ -11,6 +11,10 @@ body {
   min-height: 100vh;
 }
 
+.pointer:hover {
+  cursor: pointer;
+}
+
 /* GRID ========================================================================================= */
 
 .grid {
@@ -62,6 +66,29 @@ body {
   text-align: left;
 }
 
+.grid-favorites {
+  gap: 16px;
+  grid:
+    "a" auto
+    "b" auto
+    "c" auto
+    "d" auto
+    "e" auto
+    / 1fr;
+  background: var(--gray-two);
+  border-radius: 16px;
+  padding: 16px;
+  font: 400 normal 32px / 1em "Roboto Mono", monospace;
+  text-align: left;
+}
+
+.grid-fav {
+  gap: 16px;
+  grid:
+    "a b" auto
+    / auto 1fr;
+}
+
 .grid-current {
   grid:
     "a" auto
@@ -72,11 +99,35 @@ body {
   font: 400 normal 32px / 1em "Roboto Mono", monospace;
 }
 
+.grid-current-lower {
+  grid:
+    "a b c" auto
+    / 1fr 1fr 1fr;
+  padding: 16px;
+  text-align: center;
+}
+
 .grid-week {
   gap: 16px;
   grid:
     "a b c d e" auto
     / 1fr 1fr 1fr 1fr 1fr;
+}
+
+.grid-day {
+  gap: 8px;
+  grid:
+    "a" auto
+    "b" auto
+    "c" auto
+    "d" auto
+    "e" auto
+    / 1fr;
+  background: var(--gray-two);
+  border-radius: 16px;
+  padding: 16px;
+  font: 400 normal 24px / 1em "Roboto Mono", monospace;
+  text-align: center;
 }
 
 /* AREA ========================================================================================= */
@@ -110,30 +161,14 @@ body {
   text-align: center;
 }
 
-.cell-favorites {
-  background: var(--gray-two);
-  border-radius: 16px;
-  padding: 16px;
-  font: 400 normal 32px / 1em "Roboto Mono", monospace;
-  text-align: left;
-}
+.cell-header-fav {}
+
+.cell-fav-icon {}
+.cell-fav-name {}
 
 .cell-current-upper {
   background: var(--gray-thr);
   border-radius: 16px 16px 0 0;
   padding: 16px;
-  text-align: center;
-}
-
-.cell-current-lower {
-  padding: 16px;
-  text-align: center;
-}
-
-.cell-week-day {
-  background: var(--gray-two);
-  border-radius: 16px;
-  padding: 16px;
-  font: 400 normal 24px / 1em "Roboto Mono", monospace;
   text-align: center;
 }

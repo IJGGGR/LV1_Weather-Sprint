@@ -52,15 +52,15 @@
           <div class="grid grid-search">
 
             <div class="area area-a">
-              <div class="cell cell-PLACEHOLDER">
+              <div class="cell">
 
-                <p class="m-0">ICON</p>
+                <img src="/assets/icons/01d.png" alt="Search">
 
               </div>
             </div>
 
             <div class="area area-b">
-              <div class="cell cell-PLACEHOLDER">
+              <div class="cell">
 
                 <input type="text" class="form-control form-control-lg" id="i-txt-search" placeholder="Search">
 
@@ -73,9 +73,9 @@
         <!-- Favorite ============================================================== -->
 
         <div class="area area-c">
-          <div class="cell cell-PLACEHOLDER">
+          <div class="cell cell-header-fav">
 
-            <img src="/assets/icons/01d.png" alt="TODO">
+            <img src="/assets/icons/01d.png" alt="Favorite">
 
           </div>
         </div>
@@ -91,13 +91,117 @@
         <!-- Favorites ============================================================= -->
 
         <div class="area area-a">
-          <div class="cell cell-favorites">
+          <div class="grid grid-favorites">
 
-            <p class="m-0">STAR - CITY</p>
-            <p class="m-0">STAR - CITY</p>
-            <p class="m-0">STAR - CITY</p>
-            <p class="m-0">STAR - CITY</p>
-            <p class="m-0">STAR - CITY</p>
+            <div class="area area-a">
+              <div class="grid grid-fav">
+
+                <div class="area area-a">
+                  <div class="cell cell-fav-icon">
+
+                    <img src="/assets/icons/01d.png" alt="Unfavorite">
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell cell-fav-name">
+
+                    <p class="m-0">NAME 0</p>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="area area-b">
+              <div class="grid grid-fav">
+
+                <div class="area area-a">
+                  <div class="cell cell-fav-icon">
+
+                    <img src="/assets/icons/01d.png" alt="Unfavorite">
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell cell-fav-name">
+
+                    <p class="m-0">NAME 1</p>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="area area-c">
+              <div class="grid grid-fav">
+
+                <div class="area area-a">
+                  <div class="cell cell-fav-icon">
+
+                    <img src="/assets/icons/01d.png" alt="Unfavorite">
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell cell-fav-name">
+
+                    <p class="m-0">NAME 2</p>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="area area-d">
+              <div class="grid grid-fav">
+
+                <div class="area area-a">
+                  <div class="cell cell-fav-icon">
+
+                    <img src="/assets/icons/01d.png" alt="Unfavorite">
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell cell-fav-name">
+
+                    <p class="m-0">NAME 3</p>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="area area-e">
+              <div class="grid grid-fav">
+
+                <div class="area area-a">
+                  <div class="cell cell-fav-icon">
+
+                    <img src="/assets/icons/01d.png" alt="Unfavorite">
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell cell-fav-name">
+
+                    <p class="m-0">NAME 4</p>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
 
           </div>
         </div>
@@ -110,16 +214,40 @@
             <div class="area area-a">
               <div class="cell cell-current-upper">
 
-                <p class="m-0">CITY</p>
-                <p class="m-0">TIME</p>
+                <p class="m-0" id="o-txt-curr-name">NAME</p>
+                <p class="m-0" id="o-txt-curr-time">TIME</p>
 
               </div>
             </div>
 
             <div class="area area-b">
-              <div class="cell cell-current-lower">
+              <div class="grid grid-current-lower">
 
-                <p class="m-0">ICON - TEMP/CONDITION - HI/LO</p>
+                <div class="area area-a">
+                  <div class="cell">
+
+                    <img height="128px" src="" alt="Current Condition" id="o-img-curr-icon">
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell">
+
+                    <p class="m-0" id="o-txt-curr-temp">TEMP</p>
+                    <p class="m-0" id="o-txt-curr-cond">COND</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-c">
+                  <div class="cell">
+
+                    <p class="m-0" id="o-txt-curr-hi">HI</p>
+                    <p class="m-0" id="o-txt-curr-lo">LO</p>
+
+                  </div>
+                </div>
 
               </div>
             </div>
@@ -133,61 +261,231 @@
           <div class="grid grid-week">
 
             <div class="area area-a">
-              <div class="cell cell-week-day">
+              <div class="grid grid-day">
 
-                <p class="m-0">DAY</p>
-                <p class="m-0">ICON</p>
-                <p class="m-0">CONDITION</p>
-                <p class="m-0">HI</p>
-                <p class="m-0">LO</p>
+                <div class="area area-a">
+                  <div class="cell">
+
+                    <p class="m-0">DAY</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell">
+
+                    <img height="64px" src="/assets/sunny.png" alt="Condition">
+
+                  </div>
+                </div>
+
+                <div class="area area-c">
+                  <div class="cell">
+
+                    <p class="m-0">COND</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-d">
+                  <div class="cell">
+
+                    <p class="m-0">HI</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-e">
+                  <div class="cell">
+
+                    <p class="m-0">LO</p>
+
+                  </div>
+                </div>
 
               </div>
             </div>
 
             <div class="area area-b">
-              <div class="cell cell-week-day">
+              <div class="grid grid-day">
 
-                <p class="m-0">DAY</p>
-                <p class="m-0">ICON</p>
-                <p class="m-0">CONDITION</p>
-                <p class="m-0">HI</p>
-                <p class="m-0">LO</p>
+                <div class="area area-a">
+                  <div class="cell">
+
+                    <p class="m-0">DAY</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell">
+
+                    <img height="64px" src="/assets/sunny.png" alt="Condition">
+
+                  </div>
+                </div>
+
+                <div class="area area-c">
+                  <div class="cell">
+
+                    <p class="m-0">COND</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-d">
+                  <div class="cell">
+
+                    <p class="m-0">HI</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-e">
+                  <div class="cell">
+
+                    <p class="m-0">LO</p>
+
+                  </div>
+                </div>
 
               </div>
             </div>
 
             <div class="area area-c">
-              <div class="cell cell-week-day">
+              <div class="grid grid-day">
 
-                <p class="m-0">DAY</p>
-                <p class="m-0">ICON</p>
-                <p class="m-0">CONDITION</p>
-                <p class="m-0">HI</p>
-                <p class="m-0">LO</p>
+                <div class="area area-a">
+                  <div class="cell">
+
+                    <p class="m-0">DAY</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell">
+
+                    <img height="64px" src="/assets/sunny.png" alt="Condition">
+
+                  </div>
+                </div>
+
+                <div class="area area-c">
+                  <div class="cell">
+
+                    <p class="m-0">COND</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-d">
+                  <div class="cell">
+
+                    <p class="m-0">HI</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-e">
+                  <div class="cell">
+
+                    <p class="m-0">LO</p>
+
+                  </div>
+                </div>
 
               </div>
             </div>
 
             <div class="area area-d">
-              <div class="cell cell-week-day">
+              <div class="grid grid-day">
 
-                <p class="m-0">DAY</p>
-                <p class="m-0">ICON</p>
-                <p class="m-0">CONDITION</p>
-                <p class="m-0">HI</p>
-                <p class="m-0">LO</p>
+                <div class="area area-a">
+                  <div class="cell">
+
+                    <p class="m-0">DAY</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell">
+
+                    <img height="64px" src="/assets/sunny.png" alt="Condition">
+
+                  </div>
+                </div>
+
+                <div class="area area-c">
+                  <div class="cell">
+
+                    <p class="m-0">COND</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-d">
+                  <div class="cell">
+
+                    <p class="m-0">HI</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-e">
+                  <div class="cell">
+
+                    <p class="m-0">LO</p>
+
+                  </div>
+                </div>
 
               </div>
             </div>
 
             <div class="area area-e">
-              <div class="cell cell-week-day">
+              <div class="grid grid-day">
 
-                <p class="m-0">DAY</p>
-                <p class="m-0">ICON</p>
-                <p class="m-0">CONDITION</p>
-                <p class="m-0">HI</p>
-                <p class="m-0">LO</p>
+                <div class="area area-a">
+                  <div class="cell">
+
+                    <p class="m-0">DAY</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-b">
+                  <div class="cell">
+
+                    <img height="64px" src="/assets/sunny.png" alt="Condition">
+
+                  </div>
+                </div>
+
+                <div class="area area-c">
+                  <div class="cell">
+
+                    <p class="m-0">COND</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-d">
+                  <div class="cell">
+
+                    <p class="m-0">HI</p>
+
+                  </div>
+                </div>
+
+                <div class="area area-e">
+                  <div class="cell">
+
+                    <p class="m-0">LO</p>
+
+                  </div>
+                </div>
 
               </div>
             </div>
