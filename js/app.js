@@ -246,8 +246,9 @@ function updateScreen() {
     ? `${state.wish.loc.name}, ${state.wish.loc.state}, ${state.wish.loc.country}`
     : `${state.wish.loc.name}, ${state.wish.loc.country}`;
 
-  // oTxtCurrTime.innerText = w.data.curr.timezone * 1000;
-  // oTxtCurrTime.innerText = Date.now().toString();
+  // TODO: time offset
+  let dt = new Date;
+  oTxtCurrTime.innerText = dt.toLocaleString("en-US", { hour: "2-digit", minute: "2-digit", weekday: "long", month: "long", day: "numeric", timeZone: "UTC" });
 
   let isCloudy = state.wish.data.curr.clouds.all >= 50; // TODO: refine threshold
 
@@ -267,12 +268,23 @@ function updateScreen() {
   zer[4].innerHTML = `L: ${Math.round(state.wish.data.curr.main.temp_min)}&deg;F`;
   // day 1-4
   for (let i = 1; i < days.length; i++) {
+    // TODO: fix initial time offset
+    let hi = state.wish.data.fore.list[0 + (i * 8)].main.temp_max;
+    let lo = state.wish.data.fore.list[0 + (i * 8)].main.temp_min;
+    for (let j = 0 + (i * 8); j < 8 + (i * 8); j++) {
+      if (hi < state.wish.data.fore.list[j].main.temp_max) {
+        hi = state.wish.data.fore.list[j].main.temp_max;
+      }
+      if (lo > state.wish.data.fore.list[j].main.temp_min) {
+        lo = state.wish.data.fore.list[j].main.temp_min;
+      }
+    }
     const day = days[i].querySelectorAll(".cell>*");
-    day[0].innerHTML = `DAY ${i}`;
+    day[0].innerHTML = `Day ${i}`;
     day[1].src = `/assets/cloudy.png`;
     day[2].innerHTML = `CLOUDY ${i}`;
-    day[3].innerHTML = `H: ${i}`;
-    day[4].innerHTML = `L: ${i}`;
+    day[3].innerHTML = `H: ${hi}&deg;F`;
+    day[4].innerHTML = `L: ${lo}&deg;F`;
   }
 }
 
