@@ -159,14 +159,15 @@ function updateScreen() {
   const fav = document.getElementsByClassName("cell-header-fav")[0];
   fav.innerHTML = "";
   const img = document.createElement("img");
-  img.src = "/assets/icons/01n.png";
+  img.height = 64;
+  img.src = "/assets/star-dull.png";
   for (let i = 0; i < state.list.length; i++) {
     if (
       state.list[i].loc.name === state.wish.loc.name &&
       state.list[i].loc.state === state.wish.loc.state &&
       state.list[i].loc.country === state.wish.loc.country
     ) {
-      img.src = "/assets/icons/01d.png";
+      img.src = "/assets/star-fill.png";
       break;
     }
   }
@@ -212,7 +213,8 @@ function updateScreen() {
     const img = document.createElement("img");
     const p = document.createElement("p");
 
-    img.src = "/assets/icons/01d.png";
+    img.height = 64;
+    img.src = "/assets/star-fill.png";
     img.alt = "Unfavorite";
     img.className = "pointer";
     p.className = "m-0 pointer";
@@ -248,7 +250,7 @@ function updateScreen() {
 
   // TODO: time offset
   let dt = new Date;
-  oTxtCurrTime.innerText = dt.toLocaleString("en-US", { hour: "2-digit", minute: "2-digit", weekday: "long", month: "long", day: "numeric", timeZone: "UTC" });
+  oTxtCurrTime.innerText = dt.toLocaleString("en-US", { hour: "numeric", minute: "2-digit", weekday: "long", month: "long", day: "numeric" });
 
   let isCloudy = state.wish.data.curr.clouds.all >= 50; // TODO: refine threshold
 
@@ -258,33 +260,52 @@ function updateScreen() {
   oTxtCurrHi.innerHTML = `Highest: ${Math.round(state.wish.data.curr.main.temp_max)}&deg;F`;
   oTxtCurrLo.innerHTML = `Lowest: ${Math.round(state.wish.data.curr.main.temp_min)}&deg;F`;
 
+  // // i give up with this
+  // dt = new Date;
+  // dt.setHours(23, 59, 59, 999); // advance to the end of the day
+  // let shift = 8;
+  // for (let i = 0; i < 9; i++) {
+  //   console.log(`${Math.floor(dt.getTime() / 1000)} v. ${state.wish.data.fore.list[i].dt}`);
+  //   if (dt.getTime() < state.wish.data.fore.list[i].dt * 1000) {
+  //     shift = i;
+  //     break;
+  //   }
+  // }
+  // console.log("SHIFT:", shift);
+
   const days = document.querySelectorAll(".grid-week>.area");
   // day 0
   const zer = days[0].querySelectorAll(".cell>*");
-  zer[0].innerHTML = "DAY 0";
+  zer[0].innerHTML = "Today";
   zer[1].src = isCloudy ? "/assets/cloudy.png" : "/assets/sunny.png";
   zer[2].innerHTML = isCloudy ? "Cloudy" : "Sunny";
   zer[3].innerHTML = `H: ${Math.round(state.wish.data.curr.main.temp_max)}&deg;F`;
   zer[4].innerHTML = `L: ${Math.round(state.wish.data.curr.main.temp_min)}&deg;F`;
   // day 1-4
   for (let i = 1; i < days.length; i++) {
-    // TODO: fix initial time offset
-    let hi = state.wish.data.fore.list[0 + (i * 8)].main.temp_max;
-    let lo = state.wish.data.fore.list[0 + (i * 8)].main.temp_min;
-    for (let j = 0 + (i * 8); j < 8 + (i * 8); j++) {
+    // TODO: fix initial time offset, this just skips forward 8 to start
+    let offset = (i * 8);
+    let hi = state.wish.data.fore.list[0 + offset].main.temp_max;
+    let lo = state.wish.data.fore.list[0 + offset].main.temp_min;
+    let clouds = 0;
+    for (let j = 0 + offset; j < 8 + offset; j++) {
       if (hi < state.wish.data.fore.list[j].main.temp_max) {
         hi = state.wish.data.fore.list[j].main.temp_max;
       }
       if (lo > state.wish.data.fore.list[j].main.temp_min) {
         lo = state.wish.data.fore.list[j].main.temp_min;
       }
+      clouds += state.wish.data.fore.list[j].clouds.all;
     }
+    let isCloudy = clouds / 8 >= 50;
     const day = days[i].querySelectorAll(".cell>*");
-    day[0].innerHTML = `Day ${i}`;
-    day[1].src = `/assets/cloudy.png`;
-    day[2].innerHTML = `CLOUDY ${i}`;
-    day[3].innerHTML = `H: ${hi}&deg;F`;
-    day[4].innerHTML = `L: ${lo}&deg;F`;
+    let tmp = new Date;
+    tmp.setTime(state.wish.data.fore.list[offset].dt * 1000);
+    day[0].innerHTML = tmp.toLocaleDateString("en-US", { weekday: "long" });
+    day[1].src = isCloudy ? "/assets/cloudy.png" : "/assets/sunny.png";
+    day[2].innerHTML = isCloudy ? "Cloudy" : "Sunny";
+    day[3].innerHTML = `H: ${Math.round(hi)}&deg;F`;
+    day[4].innerHTML = `L: ${Math.round(lo)}&deg;F`;
   }
 }
 
